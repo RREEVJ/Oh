@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Never Gonna Give You Up Pitch</title>
+<script>
+// Function to play audio in Rick Astley's pitch
+function playRickRoll() {
+    const audio = new Audio('myvoice.mp3');
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const source = audioContext.createMediaElementSource(audio);
+    const pitchShifter = audioContext.createPitchShift();
+    
+    // Set pitch shift value to match Rick Astley's pitch
+    pitchShifter.pitch = -2; // You might need to adjust this value
+    
+    source.connect(pitchShifter);
+    pitchShifter.connect(audioContext.destination);
+    
+    audio.play();
+}
+</script>
+</head>
+<body onclick="playRickRoll()">
+<!-- Tap anywhere on the screen to play the audio -->
+</body>
+</html>
